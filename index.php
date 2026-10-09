@@ -1,9 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Mi pagina</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mi primera pagina web</title>
 </head>
 <body>
-	<h1>Index</h1>
-	<p>Este es el index</p>
+	<div>
+	<h1>Mi primera pagina web</h1>
+	<p>Pagina principal de mi sitio web</p>
+	</div>
 </body>
 </html>
