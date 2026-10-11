@@ -1,0 +1,302 @@
+Modulo 7
+
+HUGO GERMAN CUELLAR MARTINEZ 4:10 PM
+dev.hugo.cuellar@gmail.com
+
+entrega final Docker Compose - Archivo para desplegar nuestros contenedores para back end, front, BD y correo e
+Evaluaciones cierran el 16 
+
+Que es bash/shell
+
+Es un programa escencial que actua como interprete procesando los comandos que itroduce el usuario y ejecutandolos en el SO
+Ex: Bash zsh o sh
+
+Bash Bourne-again shell es la shell mas prevalente y ampliamente utilizada en sistemas operativos basados en Unix,
+incluyendo Linux y macOS, consolidandose como un estandar de facto en estos entornos 
+
+sudo - permite ejecutar comandos como root, permisos de admin
+para ejecutar cualquier comando que requiera permisos de administrador o root aunque ya este logeado como SUDO
+tengo que ponerlo antes del comando, ex:
+sudo apt update - actualiza los paquetes 
+Requisitos: "Sudo" y contraseña - DeathG.
+sudo apt upgrade - actualizar
+sudo apt install - instalar paquetes especificos
+apt es un manejador de paquetes de ubuntu
+
+cd / - raiz - normalmente disco local C:
+
+anatomia del comando
+
+ls - accion principal (verbo)
+-lh - flags/opciones- modificadores del comportamiento 
+/var/log - argumento el objetivo sobre el que se actua
+
+ls -lh /var/log
+
+pwd -L - ver mi directorio actual 
+
+* + algo = una secuencia de varios o mas caracteres
+ex: "ls*txt" lista todos lo txt de la locacion
+
+ls - l da mas informacion, como tipo, permisos, numero de links, propietario, grupo, tamaño y la ultima modificacion
+
+ruta absoluta - proporciona una ubicacion completa desde la raiz
+ruta relativa - es paso a paso desde la direccion actual
+
+para ver archivos se usa el comando "cat"
+
+ejemplo 
+
+echo $(cat [nombrearchivo.extension]) - hace un echo de lo que contenga el archivo
+
+cat "nombre del archivo"+.extension - lo muestra completo
+
+more "nombre del archivo".extension - lo muestra por partes - filtra por pagina
+
+diff sirve para comparar 2 archivos 
+
+como crear archivos
+
+touch + nombre del archivo - si no devuelve nada es que ya sejecuto correctamente
+
+crear directorio
+
+mkdir + nombre de mi carpeta
+
+mkdir micarpeta/subcarpeta - puedo ocupar rutas para crera archivos o carpetas
+
+mkdir -p carpeta2/sub2 crea tanto el padre como el hijo dependiendo la ruta indicada
+
+mover y renombrar archivos
+
+mv + nombre o ruta + ruta a donde mover lo mueve
+
+Renombrar
+
+mv "nombre del archivo" + "nuevo nombre del archivo"
+
+find - busca todo
+
+find . "name" "extension "*.extension"" buscar archivos que correspondan
+
+EDITORES DE TEXTO
+
+2 EDITORES DE TEXTO
+
+nano y bin
+
+nano + "archivo" lo abre
+
+i=1
+
+for arg in "$@" ; do
+	echo "arg$i => $arg"
+	((i++))
+done
+
+.nanorc 
+
+set linenumbers
+set mouse
+set autoident
+set tabsize 4 
+
+los permisos son quienes pueden leer, escribir y crear
+
+chmod (valor:max777) archivo
+
+
+rwx
+read write execute
+
+var www es el usuario por defecto que va a usar apache
+
+De la practica de linux hacer hasta antes de empezar automatizacion
+los .md los podemos abrir desde VS code
+
+Shell scripring
+
+Shebang #!bin/bash - Es la primera linea del script que especificar 
+el interprete del shell a utilizar para la ejecucion
+
+Dar permisos de ejecucion - chmod +x script.sh
+
+Variables - no se debe incluir espacios, funciona igual que en otros lenguajes
+
+Acceso a variables - Para recuperar o referenciar el valor almacenado se debe prefijar
+el nombre de la variable con el simbolo $
+
+Lectura de datos con "read"
+
+Lectura de datos y Argumentos - $0 = nombre de script de 1 en adelante es la posicion del
+argunemento, $# muestra el numero de argumentos, $@ agrupa todos los argumentos 
+
+Se ejecuta con sh mi_script.sh arg1 arg2, tambien se puede ejecutar con ./script.sh
+
+# comprime
+
+tar. se usa para unir varios archivos
+
+ex: tar -czf scripts.tar.gz scripts/ 
+
+f - nombre del archivo
+
+
+pendiente para docker : scp -r scripts/ alumno01@132.248.75.167:/home/alumno01/copia
+
+#uso de almacenamiento de lo que le indiquemos
+
+du -h "algo"
+
+#Uso de disco
+
+top - para cpu
+df -h
+
+
+#copia de seguridad
+scp = secure copy
+
+
+para cronometrar 
+
+https://crontab.guru/
+
+
+
+
+
+
+
+------------------------------------- GIT ---------------------------------------------
+
+Pull request - Es escencialmente una solicitud formal para añadir o retocar codigo en 
+un repositorio Representa el mecanismo principal para la colaboracion, especialmente cuando
+los desarroladores no tienen permisos de escritura directos en el repositorio
+
+En el contexto de Git una PR es la forma en que un colaborador indica que ha completado un 
+trabajao a una rama y desea que esos cambios se fusionen en la rama principal del proyecto
+
+Code review - La revision de codigo es el proceso central que ocurre una vez que se ha 
+abierto una PR 
+
+Gestion de conflictos
+
+El admin debe 
+Indicar la discrepancia: El editor de GitHub puede mostrar las dos posibilidades de codigo 
+en conflicto, la version de la rama principal (HEAD/current change) y la version de la 
+rama de la PR
+
+Resolver manualmente: Se debe editar el archivo en conlficto eligiendo el codigo util
+
+Pull Request
+Feature a Develop: Las ramas de feature Funcionalidades se crean a aprtir de la rama develop
+y una vez completadas se fusionan de nuevo en develop a traves de una PR
+Releas a Main y Develop
+Hotfix a Main y develop
+
+
+ssh usuario@ip
+ponemos el password que nos dieron
+
+una vez dentro debemos dar passwd
+
+mkdir practica-git
+cd practica-git
+git init - para inicializar git en la carpeta
+
+echo "<html><head></head><body><h1>Index</h1></body></html>" > index.php
+touch info.php
+nano lista.php
+touch README.md
+
+nano listas.php
+
+git add -A - agrega todo
+git status - ya sabemos
+git reset - resetea los cambios
+git add *.php - agrega todos los .php y deja lo que no es php fuera
+git rm --cached [archivo.extension] - ex: git rm --cached index.php - sacar algo de la rama de cambio
+git commit -m "txt" - commit
+git add . - agregar todo
+git commit - abre un txt en nano "Comit-editmsg" si lo modificamos es como poner commit -m
+git diff - muestra diferencias de mi version actual con las de mi repositorio de todo
+git diff [archivo] - lo mismo pero especifico dependiendo que archivo referenciemos
+git commit --amend -m "[Mensaje nuevo]" - cambiar o corregir un commit ya hecho
+git log - muestra todo lo que he hecho en el repositorio
+git log --oneline - comprime todo a una linea correspondientemente a su log
+git log --oneline -all -graph -decorate - verlo pero mas decorado
+git checkout <id> - traer una version especifica en <id> va el id que recuperamos con log, del log correspondiente 	
+			[OJO - LOS ID DE DIFERENTES USUARIOS Y RAMAS VAN A SER DIFERENTES, POR ESO CONSULTAR CON LOG PRIMERO ]
+git checkout main - cambia el main - investigar bien que hace [LA PUEDO KGAR SI LO USO
+git revert [head/id] - Revertir el ultimo commit (abre el editor de texto) en la primera linea de texto se agrega el commit de por que
+				se hizo el revert  y agrega un nuevo commit
+git reset --hard [id] - pasa a un estado anterior, borra el commit del que partimos, no funciona como revert
+	si pones un id de un commit viejo borrara todo despues de esa fecha
+	en git status te dice que no hay cambios
+git reset --soft [id] - tambien quita la version que le especifiquemos, pero deja los cambios pendientes en git status
+			para subirlos
+			Mantiene los cambios o sea lo regresa a antes del commit
+git reset [id] - Mantiene los cambios tambien, entonces por defecto es un soft
+
+
+
+
+
+
+---Linux----
+touch [archivo.extension] - crea un archivo en blanco
+rm [archivo.extension] - borra un archivo
+
+ssh-copy-id alumno....@
+
+copiar llaves  -  tar -zcvf llaves.tar.gz .ssh
+-> scp llaves.tar.gz alumno...@0.0.0.0: ~
+/*pide password de la maquina remota - no le puse?*/ 
+
+Descomprimir
+tar -zxvf llaves.tar.gz
+
+--------------------------------------Como conectar a github-------------------------------------
+
+Muchas cosas lo importante es sacar mis llaves .ssh en mi maquina o servidor y despues llevarme eso a git
+git remote add origin https://github.com/JuanCarlosSanchezVazquez0401/Diplomado2026.git
+git branch -M main
+git push -u origin main
+
+Desde el servidor 
+code -> ssh
+
+git clone [enlace del repo que sacamos de code]
+
+
+
+--------------ramas secundaria-----------------------
+
+git branch - ver mis ramas
+git branch [nombre] - crear nueva rama
+git checkout [nombre] - cambiar a la rama que queramos, cuando esta seleccionada esta en verde
+git push -u origin [nombre rama]/// git push --set-upstream origin [nombre rama]- para subir cambios por primera vez a una 
+					rama secundaria
+git branch -m [nombre actual] [nuevo nombre] - renombramos ramas
+--------------------------------------------------------------------------------------------------------
+IMPORTANTE - CUANDO SE TRABAJA CON RAMAS Y HACEMOS PUSH SIEMPRE INDICAR AL FINAL DEL PUSH LA RAMA
+--------------------------------------------------------------------------------------------------------
+
+git push origin :[nombre] - borra la rama remota de bugs - [:] indica rama remota
+git branch -d [nombre] - revisa que este integradas las ramas con el repositorio (tu rama actual)
+git branch -D [nombre] - borra la rama indicada directamente, IMPORTANTE, no puedes borrar tu rama actual, 
+			tienes que cambiar a otra primero y luego borrarla
+
+------------------------------------Unir ramas-------------------------------------
+	
+git merge [rama cambios] [rama a implementar] - unir cambios de ambas ramas
+Si los cambios tienen conflictos se tiene que resolver a mano esos conflictos y luego hacer el merge o bien hacer un revert
+VS code es una herramienta muy util para revisar los cambios
+
+
+
+
+
+-----------------docker ----------------
+docker ps
